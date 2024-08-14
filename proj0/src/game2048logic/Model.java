@@ -121,8 +121,25 @@ public class Model {
      */
     public boolean atLeastOneMoveExists() {
         // TODO: Fill in this function.
+        for(int i=0;i<size();i++){
+            for(int j=0;j<size();j++){
+                if(tile(i,j) == null ){
+                    return true;
+                }
+              if(i+1<size() && tile(i,j).value()==tile(i+1,j).value()){
+                  return true;
+            }
+
+                if(j+1<size() && tile(i,j).value()==tile(i,j+1).value()){
+                    return true;
+                }
+
+
+        }
+        }
         return false;
     }
+
 
     /**
      * Moves the tile at position (x, y) as far up as possible.
@@ -142,6 +159,13 @@ public class Model {
         Tile currTile = board.tile(x, y);
         int myValue = currTile.value();
         int targetY = y;
+        if( currTile==null){
+            return;
+        }
+        while(targetY>=0 && board.tile(x,targetY+1)==null){
+            targetY++;
+        }
+
 
         // TODO: Tasks 5, 6, and 10. Fill in this function.
     }
