@@ -1,3 +1,5 @@
+import org.eclipse.jetty.websocket.server.NativeWebSocketConfiguration;
+
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -8,11 +10,13 @@ public class MapExercises {
      */
     public static Map<Character, Integer> letterToNum() {
         // TODO: Fill in this function.
-        Map<Character,Integer> m= new HashMap<>();
-        for(int i=0;i<26;i++){
-            m.put((char)('a'+i),i+1);
-        }
-        return m;
+       Map <Character,Integer> map =new HashMap<>();
+       char a='a';
+       for(int i=0;i<26;i++){
+           map.put((char)((int)a+i),i+1);
+       }
+       return map;
+
     }
 
     /** Returns a map from the integers in the list to their squares. For example, if the input list
@@ -31,22 +35,18 @@ public class MapExercises {
     /** Returns a map of the counts of all words that appear in a list of words. */
     public static Map<String, Integer> countWords(List<String> words) {
         // TODO: Fill in this function.
-        Map<String, Integer> m= new HashMap<>();
-        for (String elem:words){
-            if(!m.containsKey(elem)){
-                m.put(elem,1);
+        Map<String, Integer> map = new HashMap<>();
+        for(String word:words){
+            if(map.containsKey(word)){
+                map.put(word,map.get(word)+1);
             }else{
-                m.put(elem,m.get(elem)+1);
+                map.put(word,1);
             }
         }
-        return m;
+        return map;
     }
     public static void main(String[] args){
-        int i=0;
-        for(char key : letterToNum().keySet()){
-            System.out.print(key);
-            System.out.println(letterToNum().get(key));
-        }
+
 
 
     }

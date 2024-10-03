@@ -3,8 +3,8 @@ public class Dessert {
     public int price;
     public static int numDesserts=0;
     public Dessert(int f,int p){
-        this.flavor=f;
-        this.price=p;
+        flavor=f;
+        price=p;
         numDesserts++;
     }
 
